@@ -7,18 +7,12 @@ pipeline {
         
     }
     stages {
-        stage("init") {
-            steps {
-                script {
-                   gv = load "script.groovy" 
-                }
-            }
-        }
+       
         stage("build") {
             steps {
-                script {
-                    gv.buildApp()
-                }
+               
+                   echo 'building the application...'
+                
             }
         }
         stage("test") {
@@ -28,17 +22,19 @@ pipeline {
                 }
             }
             steps {
-                script {
-                    gv.testApp()
-                }
+                
+                    echo 'testing the application...'
+                
             }
         }
         stage("deploy") {
             steps {
-                script {
-                    gv.deployApp()
-                }
+                 echo 'deplying the application...'
+                 echo "deploying version ${params.VERSION}"
             }
         }
     }   
 }
+
+
+
