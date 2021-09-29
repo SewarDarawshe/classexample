@@ -1,4 +1,4 @@
-def gv
+
 
 pipeline {
     agent { label 'slave' } 
